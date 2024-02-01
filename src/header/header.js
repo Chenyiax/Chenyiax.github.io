@@ -1,9 +1,28 @@
 import './header.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import headimg from "../imgs/logo.jpg"
 import {BookFilled, FileFilled, HomeFilled} from "@ant-design/icons";
 function Header() {
     const [isOpen, setIsOpen] = useState(false)
+
+
+    useEffect(() => {
+        // 定义一个函数来更新状态
+        const updateWindowDimensions = () => {
+            const windowWidth = window.innerWidth;
+            setIsOpen(windowWidth > 1000);
+        };
+
+        // 在组件挂载时和窗口大小变化时调用更新函数
+        window.addEventListener('resize', updateWindowDimensions);
+        updateWindowDimensions(); // 初始化
+
+        // 在组件卸载时移除事件监听器
+        return () => {
+            window.removeEventListener('resize', updateWindowDimensions);
+        };
+    }, []); // 第二个参数是空数组，表示只在组件挂载和卸载时执行
+
 
     return (
         <div className="header">
