@@ -7,10 +7,16 @@
 /* 默认的左右布局 */
 .flex-container {
   display: flex;
+  justify-content: center;
 }
 
 .container {
   max-width: 900px;
+  margin-left: 10px;
+  font-family: Calibri, serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 /* 当页面宽度小于1000px时，采用上下布局 */

@@ -2,8 +2,22 @@ import './header.css'
 import {useEffect, useState} from "react";
 import headimg from "../imgs/logo.jpg"
 import {BookFilled, FileFilled, HomeFilled} from "@ant-design/icons";
+import {useHistory} from "react-router-dom";
 function Header() {
     const [isOpen, setIsOpen] = useState(false)
+    const history = useHistory();
+    const handleClick = (event) => {
+        // 获取点击的div元素
+        const clickedDiv = event.currentTarget;
+
+        const textContent = clickedDiv.textContent.trim();
+        if (textContent === "Home") {
+            history.push("/")
+        } else {
+            const modifiedString = textContent.charAt(0).toLowerCase() + textContent.slice(1);
+            history.push("/" + modifiedString)
+        }
+    };
 
 
     useEffect(() => {
@@ -32,7 +46,7 @@ function Header() {
                     <svg t="1706771589748" className={isOpen ? 'closed' : 'open'} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1754" width="32" height="32"><path d="M960 304c0 8.84-7.16 16-16 16H80c-8.84 0-16-7.16-16-16V176c0-8.84 7.16-16 16-16h864c8.84 0 16 7.16 16 16v128z m-16 288c8.84 0 16-7.16 16-16V448c0-8.84-7.16-16-16-16H80c-8.84 0-16 7.16-16 16v128c0 8.84 7.16 16 16 16h864z m0 272c8.84 0 16-7.16 16-16V720c0-8.84-7.16-16-16-16H80c-8.84 0-16 7.16-16 16v128c0 8.84 7.16 16 16 16h864z" p-id="1755" fill="#ffffff"></path></svg>
                 </div>
                 <div className="header-container">
-                    <div className="header-title">Multimedia Security and Forensics Group</div>
+                    <div className="header-title">Multimedia Intelligent Computing & Security</div>
                     <div className="header-img-container">
                         {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                         <img className="header-img" src={headimg} alt={"photo"}/>
@@ -49,11 +63,11 @@ function Header() {
                         <div>Chinese homepage（中文主页）: http://csee.hnu.edu.cn/people/liaoxin</div>
                     </div>
                 </div>
-
+                <div className="header-fill"></div>
             </div>
             <div className={`header-footer ${isOpen ? 'show' : ''}`}>
-                <div className="header-footer-item"><HomeFilled className="header-footer-item-svg"/>Home</div>
-                <div className="header-footer-item"><FileFilled className="header-footer-item-svg"/>Publications</div>
+                <div className="header-footer-item" onClick={handleClick}><HomeFilled className="header-footer-item-svg"/>Home</div>
+                <div className="header-footer-item" onClick={handleClick}><FileFilled className="header-footer-item-svg"/>Publications</div>
                 <div className="header-footer-item"><BookFilled className="header-footer-item-svg"/>Teaching</div>
                 <div className="header-footer-item"><svg t="1706784400615" className="header-footer-item-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2216" width="16" height="16"><path d="M758.560512 68.191078 265.439488 68.191078c-54.490032 0-98.130971 44.134173-98.130971 98.624205l-0.493234 788.993638L512 807.872614l345.184717 147.936307L857.184717 166.815283C857.184717 112.325251 813.04952 68.191078 758.560512 68.191078z" p-id="2217" fill="#2c2c2c"></path></svg>Services</div>
                 <div className="header-footer-item"><svg t="1706784481770" className="header-footer-item-svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4433" width="16" height="16"><path d="M535.6 511.8c95.1-10.5 172.1-87.5 182.6-182.6C732 204 634.4 98.2 512 98.2c-114.6 0-207.5 92.8-207.5 207.4v0.1c0 122.4 105.9 219.9 231.1 206.1zM512 572.4c-138.5 0-415 79.4-415 237.1v88.9c0 16.4 13.3 29.6 29.6 29.6h770.7c16.4 0 29.6-13.3 29.6-29.6v-88.9C927 651.9 650.5 572.4 512 572.4z" p-id="4434" fill="#2c2c2c"></path></svg>Members</div>
