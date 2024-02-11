@@ -11,17 +11,27 @@
 }
 
 .container {
-  max-width: 900px;
-  margin-left: 10px;
+  width: 900px;
   font-family: Calibri, serif;
   overflow: hidden;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
-
+.note {
+  text-align: center;
+  font-size: 24px;
+  color: #8c8c8c;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-weight: 300;
+}
 /* 当页面宽度小于1000px时，采用上下布局 */
 @media (max-width: 1000px) {
   .flex-container {
     flex-direction: column;
+  }
+  .container {
+    width: auto;
   }
 }
