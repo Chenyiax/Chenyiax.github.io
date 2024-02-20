@@ -9,7 +9,7 @@
 
 }
 .header-header {
-    background: linear-gradient(135deg, #ff0006, #fad0c4);
+    background: linear-gradient(135deg, #0071ff, #dcc6ff);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,6 +58,7 @@
 .header-img {
     width: 125px;
     height: 120px;
+    background-color: white;
 }
 .header-name {
     color: white;

@@ -1,6 +1,6 @@
 import './header.css'
 import {useEffect, useState} from "react";
-import headimg from "../imgs/logo.jpg"
+import headimg from "../imgs/logo.png"
 import {BookFilled, FileFilled, HomeFilled} from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 function Header() {
